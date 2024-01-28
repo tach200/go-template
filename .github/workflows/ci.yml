@@ -20,7 +20,7 @@ jobs:
           go-version: '1.21'
           cache: false
 
-      - name: golangci-lint
+      - name: lint
         uses: golangci/golangci-lint-action@v3
         with:
           # Require: The version of golangci-lint to use.
@@ -55,3 +55,6 @@ jobs:
   
       - name: build
         run: make build-all
+
+      - name: test
+        run: make test
