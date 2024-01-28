@@ -14,3 +14,7 @@ build-all:
 .PHONY: test
 test:
 	go test ./...
+
+.PHONY: docker-build
+docker-build:
+	docker build -t $(BINARY_NAME) .
