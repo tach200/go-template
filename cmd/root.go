@@ -26,8 +26,10 @@ var rootCmd = &cobra.Command{
 func init() {
 	viper.AutomaticEnv()
 	rootCmd.Flags().StringP("port", "p", "50051", "defines the port number the gRPC server will run on")
-	viper.BindPFlag("port", rootCmd.Flags().Lookup("port"))
-
+	err := viper.BindPFlag("port", rootCmd.Flags().Lookup("port"))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {
